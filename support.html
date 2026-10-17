@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XM Mint Support — Get help, report a bug, or contact the team.">
+    <meta name="theme-color" content="#0F1B2D">
+    <title>Support — XM Mint</title>
+    <link rel="icon" type="image/png" href="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=minimalist%20mint%20green%20coin%20icon%20dark%20background%20app%20icon&image_size=square">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a1422; --bg-2: #0f1b2d; --card: #142239; --card-2: #1a2c47;
+            --brand: #4dd0a8; --brand-2: #3bb892;
+            --text: #e8f0f7; --muted: #8a9bb0; --border: #233957;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        a { color: var(--brand); text-decoration: none; }
+        a:hover { color: var(--brand-2); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        header { background: rgba(10, 20, 34, 0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+        .brand .logo { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: flex; align-items: center; justify-content: center; color: #06231a; font-weight: 800; font-size: 16px; box-shadow: 0 4px 12px rgba(77, 208, 168, .35); }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--brand); }
+        .nav-cta { background: var(--brand); color: #06231a !important; padding: 8px 16px; border-radius: 8px; font-weight: 600 !important; }
+        @media (max-width: 720px) { .nav-links { display: none; } }
+
+        .page-hero { padding: 70px 0 30px; text-align: center; }
+        .page-hero h1 { font-size: clamp(34px, 5vw, 48px); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; }
+        .page-hero p { color: var(--muted); font-size: 17px; max-width: 600px; margin: 0 auto; }
+
+        .email-card {
+            margin: 40px auto 0; max-width: 720px;
+            background: linear-gradient(135deg, var(--card), var(--card-2));
+            border: 1px solid rgba(77, 208, 168, .3);
+            border-radius: 20px; padding: 32px;
+            text-align: center;
+        }
+        .email-card .badge {
+            display: inline-block; padding: 4px 12px; border-radius: 999px;
+            background: rgba(77, 208, 168, .15); color: var(--brand);
+            font-size: 12px; font-weight: 600; margin-bottom: 16px;
+        }
+        .email-card h2 { font-size: 22px; margin-bottom: 8px; }
+        .email-card .mail {
+            display: inline-block; margin: 12px 0;
+            font-size: clamp(18px, 3vw, 22px); font-weight: 700;
+            color: var(--brand); padding: 14px 22px;
+            background: var(--bg-2); border-radius: 12px;
+            border: 1px solid var(--border); word-break: break-all;
+        }
+        .email-card .note { color: var(--muted); font-size: 14px; }
+
+        .content { padding: 50px 0 80px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 50px; }
+        @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+        .card h3 { font-size: 19px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+        .card h3 .ico { width: 28px; height: 28px; border-radius: 8px; background: rgba(77, 208, 168, .15); color: var(--brand); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+        .card p, .card li { color: var(--text); font-size: 14.5px; }
+        .card ul { padding-left: 0; list-style: none; }
+        .card ul li { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; }
+        .card ul li:last-child { border-bottom: none; }
+        .card ul li .q { font-weight: 600; color: var(--brand); min-width: 22px; }
+        .card ul li .a { color: var(--muted); }
+
+        .faq-search {
+            max-width: 500px; margin: 0 auto 30px;
+            display: flex; gap: 8px;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 10px 16px; align-items: center;
+        }
+        .faq-search input { flex: 1; background: transparent; border: none; color: var(--text); font-size: 15px; outline: none; font-family: inherit; }
+        .faq-search input::placeholder { color: var(--muted); }
+        .faq-search .icon { color: var(--muted); }
+
+        details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; transition: border-color .2s; }
+        details:hover { border-color: rgba(77, 208, 168, .3); }
+        details summary { font-weight: 600; cursor: pointer; font-size: 15px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: "+"; color: var(--brand); font-size: 22px; font-weight: 300; transition: transform .2s; }
+        details[open] summary::after { content: "−"; }
+        details p { color: var(--muted); margin-top: 12px; font-size: 14.5px; }
+
+        .section-title { text-align: center; margin: 60px 0 30px; }
+        .section-title h2 { font-size: 28px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
+        .section-title p { color: var(--muted); font-size: 15px; }
+
+        footer { padding: 40px 0 28px; background: var(--bg-2); border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 13px; }
+        footer .links { margin-bottom: 12px; }
+        footer .links a { margin: 0 12px; color: var(--muted); }
+        footer .links a:hover { color: var(--brand); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="brand">
+            <div class="logo">X</div>
+            <span>XM Mint</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="support.html" class="active">Support</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+        <a href="mailto:huelmelissa1841991@gmail.com" class="nav-cta">Email Us</a>
+    </div>
+</header>
+
+<div class="page-hero">
+    <div class="container">
+        <h1>Support Center</h1>
+        <p>Real help, from real people. We respond to every email personally.</p>
+
+        <div class="email-card">
+            <span class="badge">📬 SUPPORT EMAIL</span>
+            <h2>Need to reach us directly?</h2>
+            <a href="mailto:huelmelissa1841991@gmail.com" class="mail">huelmelissa1841991@gmail.com</a>
+            <p class="note">Typical response time: <strong>within 48 hours</strong> on business days.</p>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+<div class="container">
+
+    <div class="grid">
+        <div class="card">
+            <h3><span class="ico">🐛</span> Report a Bug</h3>
+            <p>Found something that isn't working as expected? Help us fix it faster with this info:</p>
+            <ul style="margin-top:14px;">
+                <li><span>1.</span><div><strong>Steps to reproduce</strong> — What did you tap, in what order?</div></li>
+                <li><span>2.</span><div><strong>Expected vs. actual</strong> — What did you expect, what happened?</div></li>
+                <li><span>3.</span><div><strong>iOS version</strong> — Settings → General → About → Software Version</div></li>
+                <li><span>4.</span><div><strong>Device model</strong> — e.g. iPhone 15 Pro</div></li>
+                <li><span>5.</span><div><strong>Screenshots / Screen Recording</strong> if possible</div></li>
+            </ul>
+            <p style="margin-top:14px;">Email the details to <a href="mailto:huelmelissa1841991@gmail.com">huelmelissa1841991@gmail.com</a> with the subject line starting with <strong>[Bug]</strong>.</p>
+        </div>
+
+        <div class="card">
+            <h3><span class="ico">💡</span> Request a Feature</h3>
+            <p>We build XM Mint around how investors actually use their money. Have an idea that would make the App more useful for you?</p>
+            <ul style="margin-top:14px;">
+                <li><span>1.</span><div>Describe the feature in one sentence — the <strong>problem</strong> it solves</div></li>
+                <li><span>2.</span><div>Describe the <strong>solution</strong> you'd love to see</div></li>
+                <li><span>3.</span><div>Mocks / sketches are always welcome (but not required)</div></li>
+                <li><span>4.</span><div>Send it to <a href="mailto:huelmelissa1841991@gmail.com">huelmelissa1841991@gmail.com</a> with subject starting with <strong>[Feature]</strong></div></li>
+            </ul>
+            <p style="margin-top:14px;">We read every request. Popular ideas get prioritized on our roadmap.</p>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to the most common questions.</p>
+    </div>
+
+    <details open>
+        <summary>Where is my financial data stored?</summary>
+        <p>Everything you enter into XM Mint — transactions, accounts, budgets, goals, investments and receipts — is stored <strong>locally on your iPhone</strong> in secure application storage. There is no cloud sync, no server, and no account. If you delete the App, your data is permanently erased from the device. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+    </details>
+
+    <details>
+        <summary>Does XM Mint track me or collect any data?</summary>
+        <p><strong>No.</strong> XM Mint does not track you, display advertising, or integrate any analytics or advertising SDKs. We do not access the IDFA (Apple's Identifier for Advertisers) and we do not transmit any data off your device. The App Tracking Transparency permission prompt is therefore not required and is never shown. Read the full <a href="privacy.html#tracking">Tracking Declaration</a>.</p>
+    </details>
+
+    <details>
+        <summary>Do I need to create an account?</summary>
+        <p>No. XM Mint is account-free by design. There is no sign-up, login, email verification or password to remember. Just install the App and start tracking immediately.</p>
+    </details>
+
+    <details>
+        <summary>Can I export my data?</summary>
+        <p>Yes. All your records are accessible inside the App at any time. You may also back up your device using iTunes or iCloud (standard iOS backups), which will include XM Mint's local data.</p>
+    </details>
+
+    <details>
+        <summary>How do I attach a receipt to a transaction?</summary>
+        <p>Open any transaction, tap the receipt icon, then either take a new photo with the camera or pick an existing image from your photo library. Receipts are stored only on your device, attached to that transaction.</p>
+    </details>
+
+    <details>
+        <summary>Why are the investment prices sometimes slightly off?</summary>
+        <p>XM Mint is not a live-quote feed. Prices are entered or updated by you with a single tap from a price you obtained elsewhere (your broker, a news source, etc.). This keeps the App on-device, private, and never connects to brokerage APIs. We do not provide investment advice.</p>
+    </details>
+
+    <details>
+        <summary>Can I use XM Mint on iPad or Mac?</summary>
+        <p>XM Mint is currently designed for iPhone (iOS 16+). It runs on iPad in compatibility mode but is not optimized for iPad layouts. A native iPad / Mac version may be considered in the future.</p>
+    </details>
+
+    <details>
+        <summary>How do I delete all my data?</summary>
+        <p>Open the App, go to <strong>Settings → Reset / Clear Data</strong>, and confirm. Or simply delete the App from your device — all local data is removed with it.</p>
+    </details>
+
+    <details>
+        <summary>Does XM Mint provide investment advice?</summary>
+        <p><strong>No.</strong> XM Mint is a tracking and visualization tool. It does not provide financial, investment, tax or legal advice. Any numbers shown are a reflection of the inputs you entered. Always consult a licensed professional for advice tailored to your situation.</p>
+    </details>
+
+    <details>
+        <summary>I have a question that isn't listed here.</summary>
+        <p>Just send us an email at <a href="mailto:huelmelissa1841991@gmail.com">huelmelissa1841991@gmail.com</a>. We personally read and reply to every support email — usually within 48 hours on business days.</p>
+    </details>
+
+</div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
+        © 2026 XM Mint. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
